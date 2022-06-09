@@ -31,7 +31,44 @@ public class FilmManagerTest {
 
         PurchaseFilm[] actual = manager.findAll();
         PurchaseFilm[] expected = {itsOwnWar, artek, escortGirls, amanat, vendetta, wolf, manyunya, ghostIsland, coati, buka};
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
+    @Test
+    void testSaveLast() {
+        FilmManager manager = new FilmManager();
+        manager.save(itsOwnWar);
+        manager.save(artek);
+        manager.save(escortGirls);
+        manager.save(amanat);
+        manager.save(vendetta);
+        manager.save(wolf);
+        manager.save(manyunya);
+        manager.save(ghostIsland);
+        manager.save(coati);
+        manager.save(buka);
+
+        PurchaseFilm[] actual = manager.findLast();
+        PurchaseFilm[] expected = {buka, coati, ghostIsland, manyunya, wolf, vendetta, amanat, escortGirls, artek, itsOwnWar};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void testSaveLastNumber() {
+        FilmManager manager = new FilmManager(5);
+        manager.save(itsOwnWar);
+        manager.save(artek);
+        manager.save(escortGirls);
+        manager.save(amanat);
+        manager.save(vendetta);
+        manager.save(wolf);
+        manager.save(manyunya);
+        manager.save(ghostIsland);
+        manager.save(coati);
+        manager.save(buka);
+
+        PurchaseFilm[] actual = manager.findLast();
+        PurchaseFilm[] expected = {buka, coati, ghostIsland, manyunya, wolf};
         Assertions.assertArrayEquals(expected, actual);
     }
 }
