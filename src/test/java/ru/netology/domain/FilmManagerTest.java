@@ -32,6 +32,6 @@ public class FilmManagerTest {
         PurchaseFilm[] actual = manager.findAll();
         PurchaseFilm[] expected = {itsOwnWar, artek, escortGirls, amanat, vendetta, wolf, manyunya, ghostIsland, coati, buka};
 
-        Assertions.assertArrayEquals(expected,actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
